@@ -29,6 +29,7 @@ import sys
 import config
 import threading
 from App import controller
+import time as tm
 from DISClib.ADT import stack
 assert config
 
@@ -83,7 +84,11 @@ def optionThree(cont):
 
 
 def optionFour(cont, initialStation):
+    start = tm.process_time()
     controller.minimumCostPaths(cont, initialStation)
+    end = tm.process_time()
+    total_time = (end - start)
+    print("The time it took to execute the requirement was:", total_time*1000 ,"mseg ->",total_time, "seg\n")    
 
 
 def optionFive(cont, destStation):
